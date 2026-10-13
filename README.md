@@ -1,4 +1,4 @@
-# AEMET Climate Data Dashboard (Galicia)
+# AEMET Climate Data Dashboard
 
 An interactive R Shiny app that turns Spain's national weather service open data (AEMET) into analysis ready tables for any list of municipalities, with no code required from the user.
 
