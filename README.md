@@ -89,8 +89,8 @@ rsconnect::deployApp(appFiles = "app.R", appName = "aemet-climate-data")
 - The API key is stored in the R process's environment. On a shared server hosting several simultaneous users, concurrent sessions would share it.
 - Not every station records every variable or year. Gaps are reported in the app and left as `NA` in the export.
 
-## Related work
-- [galicia-climate-analysis](https://github.com/madelinelebreton/galicia-climate-analysis): Python analysis of long term rainfall, temperature and drought trends in Galicia using the same AEMET data.
+## Visualization
+- [AEMET-visualization](https://github.com/madelinelebreton/galicia-climate-analysis/AEMET_visualization.ipynb): Python analysis of long term rainfall, temperature and drought trends in Galicia using the same AEMET data.
 
 ## Data sources and attribution
 - Climate data: © [AEMET](https://opendata.aemet.es/) (Agencia Estatal de Meteorología). Please follow AEMET's reuse and attribution terms.
