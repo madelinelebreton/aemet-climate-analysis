@@ -45,22 +45,7 @@ flowchart LR
 - **Mixed data types.** Most AEMET variables are numeric, but `w_racha` (maximum gust) is a composite string. The app detects this, keeps it as text and skips the numeric summaries and plot.
 - **API etiquette.** AEMET allows 50 requests per minute, so requests are paced with a short delay and progress is shown per station.
 - **No secrets in code.** The API key comes from an environment variable or is typed into the app and held in memory for the session only.
-
-## Getting started
-
-**Requirements:** a recent version of R and a free [AEMET OpenData API key](https://opendata.aemet.es/centrodedescargas/altaUsuario).
-
-```r
-# 1. Install the packages (once)
-source("install_packages.R")
-
-# 2. Provide your key, either:
-#    a) copy .Renviron.example to .Renviron, add your key, restart R, or
-#    b) paste it into the Setup tab when the app opens
-
-# 3. Run the app
-shiny::runApp()
-```
+- 
 
 ### Municipality file format
 
@@ -82,6 +67,22 @@ An `.xlsx` file with three columns. For example:
     <img width="800" alt="image" src="https://github.com/user-attachments/assets/1d0b2481-7e15-42ed-9f6e-0d57d5785d9c" />
 <p/>
 
+## Getting started
+
+**Requirements:** a recent version of R and a free [AEMET OpenData API key](https://opendata.aemet.es/centrodedescargas/altaUsuario).
+
+```r
+# 1. Install the packages (once)
+source("install_packages.R")
+
+# 2. Provide your key, either:
+#    a) copy .Renviron.example to .Renviron, add your key, restart R, or
+#    b) paste it into the Setup tab when the app opens
+
+# 3. Run the app
+shiny::runApp()
+```
+
 ## Deploying your own copy (optional)
 
 The app asks each visitor for their own AEMET key, so a public deployment doesn't need any secrets on the server. A free [shinyapps.io](https://www.shinyapps.io) account is enough:
@@ -90,7 +91,8 @@ The app asks each visitor for their own AEMET key, so a public deployment doesn'
 install.packages("rsconnect")
 rsconnect::setAccountInfo(name = "<account>", token = "<token>", secret = "<secret>")  # from your shinyapps.io dashboard
 library(rsconnect)
-    rsconnect::deployApp('path/to/your/app')```
+rsconnect::deployApp('path/to/your/app')
+```
 
 ## Limitations
 
