@@ -89,8 +89,8 @@ The app asks each visitor for their own AEMET key, so a public deployment doesn'
 ```r
 install.packages("rsconnect")
 rsconnect::setAccountInfo(name = "<account>", token = "<token>", secret = "<secret>")  # from your shinyapps.io dashboard
-rsconnect::deployApp(appFiles = "app.R", appName = "aemet-climate-data")
-```
+library(rsconnect)
+    rsconnect::deployApp('path/to/your/app')```
 
 ## Limitations
 
