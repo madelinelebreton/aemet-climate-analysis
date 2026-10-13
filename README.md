@@ -72,6 +72,16 @@ An `.xlsx` file with three columns. For example:
 
 `CONCELLO` is the municipality (Galician *concello*), `NOMECAPITA` is its administrative seat, and `PROVINCIA` is one of A Coruña, Lugo, Ourense or Pontevedra. A small example template is included in [`data/example_municipalities.xlsx`](data/example_municipalities.xlsx).
 
+
+## Visualization
+[AEMET-visualization](AEMET_visualization.ipynb): Python analysis of long term rainfall, temperature and drought trends in Galicia using the same AEMET data.
+<p align="center">
+    <img width="800" alt="image" src="https://github.com/user-attachments/assets/52193806-2acb-4861-8d87-ea1e4e10aac7" />
+    <img width="800" alt="image" src="https://github.com/user-attachments/assets/5437315e-936d-4b34-b1b4-92d23f52ef64" />
+    <img width="800" alt="image" src="https://github.com/user-attachments/assets/65c10eff-6572-4aa9-9806-2f20e8b8793e" />
+    <img width="800" alt="image" src="https://github.com/user-attachments/assets/1d0b2481-7e15-42ed-9f6e-0d57d5785d9c" />
+<p/>
+
 ## Deploying your own copy (optional)
 
 The app asks each visitor for their own AEMET key, so a public deployment doesn't need any secrets on the server. A free [shinyapps.io](https://www.shinyapps.io) account is enough:
@@ -88,9 +98,6 @@ rsconnect::deployApp(appFiles = "app.R", appName = "aemet-climate-data")
 - Geocoding relies on the public OpenStreetMap Nominatim service, so large lists are slow and misspelled names can fail.
 - The API key is stored in the R process's environment. On a shared server hosting several simultaneous users, concurrent sessions would share it.
 - Not every station records every variable or year. Gaps are reported in the app and left as `NA` in the export.
-
-## Visualization
-- [AEMET-visualization](https://github.com/madelinelebreton/galicia-climate-analysis/AEMET_visualization.ipynb): Python analysis of long term rainfall, temperature and drought trends in Galicia using the same AEMET data.
 
 ## Data sources and attribution
 - Climate data: © [AEMET](https://opendata.aemet.es/) (Agencia Estatal de Meteorología). Please follow AEMET's reuse and attribution terms.
