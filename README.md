@@ -74,7 +74,7 @@ An `.xlsx` file with three columns. For example:
 
 
 ## Visualization
-[AEMET-visualization](AEMET_visualization.ipynb): Python analysis of long term rainfall, temperature and drought trends in Galicia using the same AEMET data.
+[AEMET-visualization](AEMET_visualization.ipynb): Python analysis of long term temperature and rainfall trends in Galicia using the same AEMET data.
 <p align="center">
     <img width="800" alt="image" src="https://github.com/user-attachments/assets/52193806-2acb-4861-8d87-ea1e4e10aac7" />
     <img width="800" alt="image" src="https://github.com/user-attachments/assets/5437315e-936d-4b34-b1b4-92d23f52ef64" />
