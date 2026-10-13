@@ -7,8 +7,8 @@
 # data for Galician municipalities. Runs locally, on Posit Cloud, or on
 # shinyapps.io.
 #
-# AEMET API key: never hardcode it. Either set AEMET_API_KEY in a local
-# .Renviron file (see .Renviron.example), or paste it into the Setup tab.
+# AEMET API key: set AEMET_API_KEY in a local .Renviron file (see .Renviron.example), 
+# or paste it into the Setup tab
 # ==============================================================================
 
 library(shiny)
@@ -32,7 +32,7 @@ ENV_API_KEY <- Sys.getenv("AEMET_API_KEY", unset = "")
 # Latest year offered in the year-range slider
 CURRENT_YEAR <- as.integer(format(Sys.Date(), "%Y"))
 
-# Comprehensive AEMET Monthly/Annual Metadata mapping
+# Comprehensive AEMET monthly/annual Metadata mapping
 AEMET_VARS <- c(
   "Total precipitation (p_mes)"                                      = "p_mes",
   "Maximum daily precipitation (p_max)"                             = "p_max",
@@ -115,7 +115,7 @@ ui <- page_navbar(
                 card_body(
                   p("Work through this app left to right, one tab at a time."),
                   hr(),
-                  strong("Step 1 — AEMET connection"),
+                  strong("Step 1: AEMET connection"),
                   if (nzchar(ENV_API_KEY)) {
                     p(tags$small("Using the AEMET_API_KEY found in the environment."))
                   } else {
@@ -129,11 +129,11 @@ ui <- page_navbar(
                   },
                   uiOutput("auth_status"),
                   hr(),
-                  strong("Step 2 — Climate Variable Selection"),
+                  strong("Step 2: Climate Variable Selection"),
                   p(tags$small("Choose any valid dynamic parameter provided by the AEMET Monthly API.")),
                   selectInput("target_variable", NULL, choices = AEMET_VARS, selected = "p_mes"),
                   hr(),
-                  strong("Step 3 — Municipality file"),
+                  strong("Step 3: Municipality file"),
                   p(tags$small("Upload the Excel file listing your Galician municipalities ",
                                "(must have columns: NOMECAPITA, CONCELLO, PROVINCIA).")),
                   fileInput("muni_file", NULL,
@@ -220,7 +220,7 @@ ui <- page_navbar(
                   uiOutput("fetch_status"),
                   hr(),
                   uiOutput("fetch_progress_ui"),
-                  p("Be patient - the AEMET API is limited to 50 requests per minute.")
+                  p("Be patient, the AEMET API is limited to 50 requests per minute.")
                 )
               ),
               
@@ -242,11 +242,11 @@ ui <- page_navbar(
               card(
                 card_header("Download data"),
                 card_body(
-                  p("Download a multi-sheet Excel workbook containing:"),
+                  p("Download an Excel workbook containing:"),
                   tags$ul(
-                    tags$li(tags$b("station_month_matrix"), " — rows = months, columns = stations (wide format for charting)"),
-                    tags$li(tags$b("wide"), " — one row per station × year, with Jan–Dec columns and annual summaries"),
-                    tags$li(tags$b("long"), " — one row per station × month (tidy format for analysis)")
+                    tags$li(tags$b("station_month_matrix"), ": rows = months, columns = stations (wide format for charting)"),
+                    tags$li(tags$b("wide"), ": one row per station × year, with Jan–Dec columns and annual summaries"),
+                    tags$li(tags$b("long"), ": one row per station × month (tidy format for analysis)")
                   ),
                   hr(),
                   downloadButton("btn_download_excel", "Download Excel workbook",
@@ -258,7 +258,7 @@ ui <- page_navbar(
               ),
               
               card(
-                card_header("Data preview — long format"),
+                card_header("Data preview: long format"),
                 card_body(
                   DTOutput("long_preview")
                 )
@@ -665,7 +665,7 @@ server <- function(input, output, session) {
     )
   })
   
-  # Handle whether to display the time-series line plot or a text note if variable is a composite string
+  # Handle whether to display the time series line plot or a text note if variable is a composite string
   output$plot_or_message <- renderUI({
     if(is_numeric_var()) {
       plotOutput("climate_plot", height = "600px")
