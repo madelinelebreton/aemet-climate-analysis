@@ -1,9 +1,10 @@
 # AEMET Climate Data Dashboard
 
 An interactive R Shiny app that turns Spain's national weather service open data (AEMET) into data tables for any list of municipalities, with no code required from the user.
-
-<img width="1919" height="1024" alt="aemet-demo-short" src="https://github.com/user-attachments/assets/f36eb201-6f1b-46f4-aea9-a805834d3422" />
-
+<p align="center">
+    <img width="800" alt="aemet-demo-short" src="https://github.com/user-attachments/assets/f36eb201-6f1b-46f4-aea9-a805834d3422" />
+<p/> 
+    
 Upload a spreadsheet of municipalities and the app geocodes them, matches each to its nearest AEMET weather station, pulls monthly climate records for the years you choose, and exports tidy Excel workbooks.
 
 ## Why I built it
